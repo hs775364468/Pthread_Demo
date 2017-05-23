@@ -2,10 +2,12 @@
 #include <pthread.h>
 #include <stdlib.h>
 
+int test=100;
 void *create (void *arg){
 	int *num;
 	num = (int *)arg;
 	printf("from main process is :%d\n",*num);
+	printf("test is :%d\n",test);
 	return (void *)0;
 
 }
@@ -14,7 +16,7 @@ int main(int argc ,char *argv[])
 {
 	int ret;
 	pthread_t pd1;
-	int test=100;
+	int test=500;
 	int *attr =&test;
 	
 	ret =pthread_create(&pd1, NULL,create, (void *)attr);	
